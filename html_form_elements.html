@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>form element</title>
+        <style>
+            .form{
+                background: #FFECB3;
+                font-style: italic;
+                text-align: left;
+                font-weight: 700;
+                
+            }
+            .main{
+                height: 670px;
+                width: 1200px;
+                background: bisque;
+            }
+            .main_col1{
+                height: 670px;
+                width: 600px;
+                background: skyblue;
+                float: left;
+            }
+            .main_col2{
+                height:670px;
+                width: 600px;
+                background-color: powderblue;
+                float: left;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="main">
+            <div class="main_col1">
+                <img src="htmlcode2/photo-2.avif" alt="classroom" height="670px" width="600px">
+            </div>
+            <div class="main_col2">
+        <form class="form">
+            <fieldset>
+                <legend>Acadamic survey </legend>
+                <img src="htmlcode2/logo2.jpeg" height="100px" width="200px"><br><br>
+                <label>Name of the student :</label>
+                <input type="text" name="full name"><br><br>
+                <label>Class :</label>
+                <input type="text" name="class"><br><br>
+                <label>Percentege hold in previous class :</label>
+                <input type="number" name="percent"><br><br>
+                <label>Gender of Student:</label>
+                male
+                <input type="radio" name="Gender">
+                female
+                <input type="radio" name="Gender"> <br><br>
+                <label>City:</label>
+               <select>
+                <option>choose your city</option>
+                <option value="Mumbai">Mumbai</option>
+                <option value="Pune">Pune</option>
+                <option value="Nashik">Nashik</option>
+                <option value="Nagpur">Nagpur</option>
+                <option value="Satara">Satara</option>
+                
+               </select>
+               <br>
+                <br>
+               <label>Subject (Elective):</label>
+               <br>
+                <br>
+               <input type="checkbox" name="subjects" >Maths<br>
+               <input type="checkbox" name="subjects">Science<br>
+               <input type="checkbox" name="subjects">Physics<br>
+               <input type="checkbox" name="subjects">History<br>
+               <input type="checkbox" name="subjects">Geography<br><br>
+               <label>Email: </label>
+               <input type="email" name="email">
+               <br>
+               <br>
+               <label>Password: </label>
+               <input type="password" name="password">
+               <br>
+               <br>
+               <label>Log in</label>
+               <input type="submit" name="log in">
+               <br>
+               <br>
+               <label>Search your query</label>
+               <br>
+               <input type="search" name="seach">
+
+            </fieldset>
+        </form>
+    </div>
+    </div>
+    </body>
+</html>
