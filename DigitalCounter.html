@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Counter</title>
+        <style>
+            .counter{
+                height: 200px;
+                width: 200px;
+                margin: auto;
+                margin-top: 100px;
+                background-color: blueviolet;
+                font-size: 20px;
+                text-align: center;
+                box-shadow: 5px 5px 5px gray;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="counter">
+        <button id="incremnt" onclick="increment()">Increment</button><br/><br/>
+        <h2 id="number" ></h2><br/>
+        <button id="decremnt" onclick="decrement()">Decrement</button>
+        </div>
+        <script type="text/javascript">
+            let data=0;
+            document.getElementById("number").innerText=data;
+            function increment()
+            {
+                 data=data+1;
+                document.getElementById("number").innerText=data;
+            }
+            increment()
+            function decrement()
+            { if(data>0){
+                 data=data-1;
+                document.getElementById("number").innerText=data;
+            }
+        }
+        
+            decrement()
+
+        </script>
+    </body>
+</html>

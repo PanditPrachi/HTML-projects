@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Form validation</title>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" 
+        integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" 
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+        <style>
+            .main{
+                height: 300px;
+                width: 500px;
+                border: 3px solid black;
+                margin: auto;
+                margin-top: 100px;
+                line-height: 50px;
+            }
+            .form{
+                height: 290px;
+                width: 490px;
+                text-align: center;
+                font-size: 30px;
+                background-color: aqua;
+                line-height: 50px;
+               
+            }
+            .error{
+                color:red;
+            }
+
+
+        </style>
+    </head>
+    <body>
+        <div class="main">
+            <form class="form" id="myform" onsubmit="handleForm(event)">
+                <lable>Email: </lable>
+                <input type="text" name="email" id="email">
+                <i class="fa-solid fa-user"></i>
+                <div class="error" id="emailError"></div>
+                <br/><br/>
+                <label>Password: </label>
+                <input type="password" name="Password" id="Password">
+                <i class="fa-solid fa-eye-slash" id="icon"></i>
+                
+                <br/>
+                <div class="error" id="passwordError"></div>
+                <button id="submit" name="submit" >Submit</button>
+            
+                </form>
+            </form>
+        </div>
+        <script type="text/javascript">
+            var password= document.getElementById("Password");
+            var icon=document.getElementById("icon");
+
+            icon.onclick=function(){
+                if(password.type=="password"){
+                    password.type="text";
+                  icon.setAttribute("class","fa-solid fa-eye")
+                }else{
+                    password.type="password";
+                    icon.setAttribute("class","fa-solid fa-eye-slash")
+                  
+                }
+            }
+
+        function handleForm(event){
+            event.preventDefault();
+            document.getElementById("emailError").innerHTML="";
+            document.getElementById("passwordError").innerHTML="";
+
+            var email=document.getElementById("email").value;
+            var password1=document.getElementById("Password").value;
+            var numberPattern=/[0-9]+/;
+           
+
+          if(email=="")
+            {
+                document.getElementById("emailError").innerHTML="Email is required!"
+            }
+            if(password1=="")
+            {
+                document.getElementById("passwordError").innerHTML="Password is required!"
+            }
+
+            document.getElementById("email").value="";
+            document.getElementById("Password").value="";
+
+            document.getElementById("email").addEventListener('keyup',function(e){
+                var emailValue= e.target.value;
+                var emailPattern=/[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2, 4}$/;
+                if (!emailPattern.test(emailValue)){
+                    document.getElementById('emailError').innerHTML="Valid email!!";
+                    console.log('valid email...');
+                }
+
+                
+            });
+
+        }
+       
+            
+        
+
+        
+        
+     </script>
+    </body>
+</html>

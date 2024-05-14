@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>BMI calculator</title>
+        <style>
+            body{
+                background: linear-gradient(to right,yellow,white,white,yellow);
+                font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+                font-size: 30px;
+                
+            }
+            .main{
+                height: 400px;
+                width: 600px;
+                position: absolute;
+                top:50%;
+                left:50%;
+                transform: translate(-50%,-50%);
+                padding: 10px;
+                border-radius: 5px;
+                background: black;
+                color: aliceblue;
+                box-shadow: grey 0px,10px,20px,-10px;
+                text-align: center;
+                line-height:50px ;
+            }
+            span{
+                color:red;
+                font-size: 15px;
+                
+            }
+            button{
+                height: 50px;
+                width: 100px;
+                border: 2x solid white;
+                border-radius: 3px;
+                padding: 5px;
+                font-weight: bolder;
+                cursor: pointer;
+            
+            }
+            h1{
+                text-align: center;
+                color: black;
+            }
+
+            #clear{
+                height: 50px;
+                width: 100px;
+                border: 2x solid white;
+                border-radius: 3px;
+                padding: 5px;
+                font-weight: bolder;
+                cursor: pointer;
+
+            }
+
+            
+        </style>
+    </head>
+    <body>
+        <h1>BMI Calculator</h1>
+        <div class="main">
+            <p>Height in CM: 
+            <input type="text" id="height"><br/><span id="heightError"></span>
+            </p>
+            <p>Weight in KG:
+                <input type="text" id="weight"><br/><span id="weightError"></span>
+            </p>
+            <button id="button">Calculate</button>
+            <button id="clear" >Clear</button>
+            <p id="output"></p>
+
+          <script type="text/javascript">
+
+                 
+          let butn=document.getElementById("button");
+
+            butn.addEventListener('click',()=> {
+                const userHeight=parseInt(document.getElementById("height").value);
+                const userWeight=parseInt(document.getElementById("weight").value);
+                const result=document.getElementById("output");
+                let height_status=false;
+                let weight_status=false;
+
+                if(userHeight===''|| isNaN(userHeight) || (userHeight<=0)){
+                    document.getElementById('heightError').innerHTML="Please enter the required input !!";
+                }else{
+                    document.getElementById('heightError').innerHTML="";
+                    height_status=true;
+                }
+
+                if(userWeight===''|| isNaN(userWeight) || (userWeight<=0)){
+                    document.getElementById('weightError').innerHTML="Please enter the required input !!";
+                }else{
+                    document.getElementById('weightError').innerHTML="";
+                    weight_status=true;
+                }
+
+                if(height_status && weight_status){
+                    const bmi=(userWeight/((userHeight*userHeight)/10000)).toFixed(2);
+
+                    if(bmi <18){
+                        result.innerHTML='Under weight : '+bmi;
+                    }else if(bmi >=18 && bmi<=24){
+                        result.innerHTML='Normal : '+ bmi;
+                    }else if(bmi>24){
+                        result.innerHTML='Obessity : '+bmi;
+                    }else{
+                        alert("This page has some error!!")
+                        result.innerHTML='';
+                    }
+                }
+                
+
+            });
+
+            let clrbutn=document.getElementById('clear');
+
+            clrbutn.addEventListener('click',()=>{
+                document.getElementById("height").value="";
+                document.getElementById("weight").value="";
+                document.getElementById("output").innerHTML="";
+                document.getElementById("heightError").innerText="";
+                document.getElementById("weightError").innerText="";
+
+            });
+
+            
+          </script>
+
+            
+
+        </div>
+    </body>
+</html>

@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Digital clock</title>
+        <style>
+            body{
+                background-image: url("htmlcode2/clock2.jpg") ;
+                background-repeat: no-repeat;
+                background-size: 100%;
+
+            }
+            .main{
+                height: 200px;
+                width: 600px;
+                border: 5px double black;
+                margin: auto;
+                margin-top: 200px;
+             }
+            .heading{
+                height: 95px;
+                width: 595px;
+                background-color: aqua;
+                color: black;
+                font-family:Verdana, Geneva, Tahoma, sans-serif;
+                text-align: center;
+                font-size: 60px;
+                border: 1px solid black;
+                line-height: 50px;
+            }
+            .clock{
+                height: 95px;
+                width: 595px;
+                text-align: center;
+                line-height: 80px;
+                font-size:100px ;
+                color:beige;
+                background-color: black;
+            }
+
+        </style>
+    </head>
+    <body>
+        <div class="main">
+            <div class="heading">Digital Clock</div>
+            <div class="clock" id="clock1">03:14:45</div>
+        </div>
+
+        <script type="text/javascript">
+
+            // Calling showTime function at every second
+setInterval(showTime, 1000);
+ 
+ // Defining showTime funcion
+ function showTime() {
+     // Getting current time and date
+     let time = new Date();
+     let hour = time.getHours();
+     let min = time.getMinutes();
+     let sec = time.getSeconds();
+     am_pm = "AM";
+  
+     // Setting time for 12 Hrs format
+     if (hour >= 12) {
+         if (hour > 12) hour -= 12;
+         am_pm = "PM";
+     } else if (hour == 0) {
+         hr = 12;
+         am_pm = "AM";
+     }
+  
+     hour =
+         hour < 10 ? "0" + hour : hour;
+     min = min < 10 ? "0" + min : min;
+     sec = sec < 10 ? "0" + sec : sec;
+  
+     let currentTime =
+         hour +
+         ":" +
+         min +
+         ":" +
+         sec +
+         am_pm;
+  
+     // Displaying the time
+     document.getElementById(
+         "clock1"
+     ).innerHTML = currentTime;
+ }
+  
+ showTime();
+        </script>
+    </body>
+</html>

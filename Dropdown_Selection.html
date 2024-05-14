@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Dropdown-Selection</title>
+        <style>
+            .main{
+                height: 300px;
+                width: 500px;
+                margin: 100px auto;
+                background: linear-gradient(to right,aqua,skyblue,skyblue,aqua);
+                border: 5px solid black;
+                text-align: center;
+                line-height: 50px;
+            }
+            select{
+                text-align: center;
+                height: 50px;
+                width: 200px;
+                font-size: 20px;
+                border-radius: 5px;
+
+            }
+        </style>
+
+    </head>
+    <body>
+        <div class="main">
+        <h1>Dropdown selection onChange Event</h1>
+        <hr/>
+        <select id="country" onchange="populateStates()">
+            <option value="" selected disabled >--Select a country--</option>
+            <option value="india">India</option>
+            <option value="africa">Africa</option>
+        </select>
+        <select id="state" onchange="populateCities()">
+            <option value="" selected disabled >--Select a State--</option>
+            
+        </select>
+        <select id="city" >
+            <option value="" selected disabled >--Select a cities--</option>
+            
+        </select>
+    </div>
+
+    <script type="text/javascript">
+        var states={
+            india:["Maharashtra","Gujrath","Punjab"],
+            africa:["Uganda","Kenya","Egypt"]
+        };
+        var cities={
+            Maharashtra:["Pune","Mumbai","Nagpur","Nashik"],
+            Gujrat:["Badoda","Surat","Ahmdabad"],
+            Punjab:["Amritsar","Lahor","Patiyala"],
+            Uganda:["kampla","Entebbe","Bililo"],
+            Kenya:["Nyrobi","Buglobi"],
+            Egypt:["Kairo","sarabia"]
+
+        };
+        var countrySelect=document.getElementById("country");
+        var stateSelect=document.getElementById("state");
+        var citySelect=document.getElementById("city");
+
+        function populateStates(){
+            stateSelect.innerHTML='<option value="">--Select a state--</option>';
+            citySelect.innerHTML='<option value="">--Select a city--</option>';
+
+            var selectedCountry=countrySelect.value;
+            if(selectedCountry){
+                var selectedStates=states[selectedCountry];
+                selectedStates.forEach(function(state){
+                    var option=document.createElement("option");
+                    option.value=state;
+                    option.text=state;
+                    stateSelect.appendChild(option);
+                });
+            }
+        }
+
+            function populateCities(){
+                 citySelect.innerHTML='<option value="">--Select a city--</option>';
+                 var selectedStates=stateSelect.value;
+                 if(selectedStates){
+                    var selectedCities=cities[selectedStates];
+                    selectedCities.forEach(function(city){
+                        var option=document.createElement("option");
+                        option.value=city;
+                        option.text=city;
+                        citySelect.appendChild(option);
+                    });
+                 }
+            }
+        
+
+    </script>
+
+
+
+
+
+
+    </body>
+</html>
